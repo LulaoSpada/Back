@@ -1,4 +1,3 @@
-import { request } from "express";
 import { Postagem } from "../Models/PostModel.js";
 
 export class PostController{
@@ -16,14 +15,10 @@ export class PostController{
     };
 
     static async InsertPost(req,res){
-        try{
+     
             const {tituloPost, textPost,FK_idUser,FK_idCategoria } = req.body
-            const postnovo = await new Postagem(tituloPost,textPost, FK_idUser,FK_idCategoria ).NovoPost();
+            const postnovo = await new Postagem(tituloPost,textPost,FK_idUser,FK_idCategoria).NovoPost();
             return res.status(200).json(postnovo);
-        }
-        catch(err){
-            console.log("error controller IncertPost : " + err)
-            return res.status(500).json(err)
-        };   
+    
     }    
 }

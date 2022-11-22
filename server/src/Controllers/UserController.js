@@ -28,10 +28,10 @@ export class UsuarioController{
 
     static async updateUsuario(req, res){
         try{
-            const { idUser } = req.params
-            const {nomeUser} = req.body
-            const alterar_Usuario = await new Usuario (nomeUser, idUser).Update()
-            return res.status(200).json(alterar_Usuario)
+            const { idUser } = req.params;
+            const {nomeUser} = req.body;
+            const alterar_Usuario = await new Usuario(nomeUser, '', '', '', idUser).Update();
+            return res.status(200).json(alterar_Usuario);
         }
         catch (err)
         {
